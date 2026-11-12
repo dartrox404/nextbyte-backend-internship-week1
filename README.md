@@ -1,7 +1,17 @@
+<div align="center">
+
 # Week 1 — Express Server with Health Check
 
-A simple Node.js server built with Express.js.  
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![Health Check](https://img.shields.io/badge/Health_Check-Active-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+A simple Node.js server built with **Express.js**.  
 It includes a basic health-check endpoint to verify that the server is running correctly.
+
+</div>
 
 ## Features
 
@@ -12,10 +22,8 @@ It includes a basic health-check endpoint to verify that the server is running c
 
 ## Requirements
 
-Make sure the following are installed:
-
 - [Node.js](https://nodejs.org/)
-- npm (comes with Node.js)
+- npm
 
 Check installation:
 
@@ -26,31 +34,13 @@ npm -v
 
 ## Project Setup
 
-1. Open the project folder in VS Code or terminal.
-
 ```bash
 cd D:\projects\internship\Week1
-```
-
-2. Install dependencies:
-
-```bash
 npm install
-```
-
-3. Start the server:
-
-```bash
 node server.js
 ```
 
-Or, if a start script is configured:
-
-```bash
-npm start
-```
-
-The server will run on:
+Server will run on:
 
 ```text
 http://localhost:5050
@@ -63,8 +53,6 @@ http://localhost:5050
 ```http
 GET /health
 ```
-
-This endpoint checks whether the server is running.
 
 Example:
 
@@ -88,12 +76,6 @@ Expected response:
 GET /
 ```
 
-Example:
-
-```text
-http://localhost:5050/
-```
-
 Expected response:
 
 ```text
@@ -112,7 +94,7 @@ app.get("/health", (req, res) => {
   res.status(200).json({
     status: "ok",
     uptime: process.uptime(),
-    timestamp: new Date().toISOString(),
+    timestamp: new Date().toISOString()
   });
 });
 
@@ -125,33 +107,18 @@ app.listen(port, () => {
 });
 ```
 
-## How It Works
+## Testing
 
-- Express creates the server application using `express()`.
-- `app.get("/health", ...)` defines a GET route for health checks.
-- `res.status(200)` sends a successful HTTP response.
-- `res.json()` returns JSON data.
-- `process.uptime()` shows how long the server has been running.
-- `app.listen(port)` starts the server on the given port.
-
-## Testing the Health Check
-
-After starting the server, open this URL in a browser:
+Browser:
 
 ```text
 http://localhost:5050/health
 ```
 
-Or test it using PowerShell:
+PowerShell:
 
 ```powershell
 curl http://localhost:5050/health
-```
-
-Expected result:
-
-```text
-{"status":"ok","uptime":12.345,"timestamp":"2026-11-12T15:30:00.000Z"}
 ```
 
 ## Stopping the Server
@@ -162,10 +129,6 @@ Press:
 Ctrl + C
 ```
 
-in the terminal to stop the server.
+## License
 
-## Notes
-
-- The health-check endpoint is commonly used by monitoring systems to confirm that an application is running.
-- A `200 OK` response means the server is healthy.
-- This basic health check only verifies that the server is running; it does not check external services such as a database.
+This project is licensed under the MIT License.
